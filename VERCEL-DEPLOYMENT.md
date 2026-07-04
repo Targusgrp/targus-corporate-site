@@ -12,6 +12,24 @@ Add these domains to the same Vercel project:
 - `www.tcop.targusgrp.com`
 - `targuspro.targusgrp.com`
 
+## DNS Records
+
+After adding each domain in Vercel, update DNS for `targusgrp.com` at your domain registrar:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| CNAME | `www` | `cname.vercel-dns.com` |
+| CNAME | `www.tcop` | `cname.vercel-dns.com` |
+| CNAME | `targuspro` | `cname.vercel-dns.com` |
+
+If your DNS provider asks for a full host instead of a name, use:
+
+- `www.targusgrp.com`
+- `www.tcop.targusgrp.com`
+- `targuspro.targusgrp.com`
+
+If you use Cloudflare, set these records to DNS only while Vercel verifies them.
+
 The `vercel.json` file rewrites subdomain traffic:
 
 - `www.targusgrp.com` opens the parent Targus Nig Ltd website.
