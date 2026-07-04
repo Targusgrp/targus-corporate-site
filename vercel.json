@@ -1,0 +1,26 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.tcop.targusgrp.com"
+        }
+      ],
+      "destination": "/businesses/tcop/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "targuspro.targusgrp.com"
+        }
+      ],
+      "destination": "/businesses/properties/index.html"
+    }
+  ]
+}
