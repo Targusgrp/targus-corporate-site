@@ -89,22 +89,26 @@ body {
   inset: 0;
   pointer-events: none;
   position: absolute;
+  z-index: 1;
 }
 
 .hero-image {
   animation: heroZoom 16s ease-in-out infinite alternate;
   transform: scale(1.02);
+  z-index: 0;
 }
 
 .hero-overlay {
   background:
     linear-gradient(90deg, rgba(5, 24, 17, 0.95) 0%, rgba(5, 24, 17, 0.8) 33%, rgba(5, 24, 17, 0.28) 62%, rgba(5, 24, 17, 0.05) 100%),
     linear-gradient(0deg, rgba(4, 18, 13, 0.32), rgba(4, 18, 13, 0.08));
+  z-index: 1;
 }
 
 .hero-content {
   animation: riseIn 700ms ease-out both;
   max-width: 760px;
+  z-index: 2;
 }
 
 .hero-content h1 {
@@ -471,12 +475,24 @@ body {
 
 @media (max-width: 620px) {
   .hero {
-    min-height: 900px;
-    padding-bottom: 190px;
+    min-height: 760px;
+    padding-bottom: 148px;
+    padding-top: 176px;
   }
 
   .hero-content h1 {
-    font-size: clamp(3rem, 16vw, 4.4rem);
+    font-size: clamp(2.45rem, 12.8vw, 3.6rem);
+    margin-bottom: 18px;
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+    line-height: 1.52;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 24px;
   }
 
   .hero-sector-strip {
