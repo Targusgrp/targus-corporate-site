@@ -71,3 +71,13 @@ vercel domains add targuspro.targusgrp.com
 ```
 
 Vercel will show the DNS records to add.
+
+## Contact Form Email
+
+The `/contact` form submits to `/api/enquiry`. Add these environment variables in the Vercel project before relying on online delivery:
+
+- `RESEND_API_KEY`: Resend API key used to send enquiry emails.
+- `ENQUIRY_TO`: recipient address, for example `info@targusgrp.com`.
+- `ENQUIRY_FROM`: verified sender, for example `Targus Website <website@targusgrp.com>`.
+
+If `RESEND_API_KEY` is not set, the website keeps the enquiry form visible and offers the visitor an email fallback.
