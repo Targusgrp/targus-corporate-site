@@ -194,6 +194,61 @@ body {
   color: var(--gold-soft);
 }
 
+.capability-band {
+  align-items: stretch;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(224, 179, 92, 0.2), transparent 30%),
+    linear-gradient(135deg, #0b3023, #123f2e);
+  color: var(--white);
+  display: grid;
+  gap: 44px;
+  grid-template-columns: minmax(0, 0.78fr) minmax(320px, 1fr);
+  padding: 78px clamp(20px, 5vw, 72px);
+}
+
+.capability-copy h2 {
+  color: var(--white);
+  font-size: clamp(2rem, 3.4vw, 3.3rem);
+  max-width: 700px;
+}
+
+.capability-copy p:last-child {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.04rem;
+  line-height: 1.7;
+  margin: 22px 0 0;
+  max-width: 650px;
+}
+
+.capability-list {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.capability-list div {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-height: 180px;
+  padding: 28px;
+}
+
+.capability-list strong,
+.capability-list span {
+  display: block;
+}
+
+.capability-list strong {
+  color: var(--gold-soft);
+  font-size: 1.35rem;
+  margin-bottom: 16px;
+}
+
+.capability-list span {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+}
+
 .businesses {
   padding-top: 94px;
 }
@@ -211,7 +266,7 @@ body {
 }
 
 .business-grid {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .business-card {
@@ -220,15 +275,14 @@ body {
     var(--paper);
   border-radius: var(--radius-lg);
   box-shadow: 0 10px 34px rgba(13, 52, 38, 0.08);
-  grid-column: span 2;
-  min-height: 360px;
+  grid-column: span 4;
+  min-height: 470px;
   overflow: hidden;
   position: relative;
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
-.business-card:nth-child(4),
-.business-card:nth-child(5) {
+.business-card:nth-child(n + 4) {
   grid-column: span 3;
 }
 
@@ -267,6 +321,34 @@ body {
 .business-card h3 {
   font-size: 1.5rem;
   max-width: 85%;
+}
+
+.business-points {
+  border-top: 1px solid rgba(15, 73, 52, 0.1);
+  color: var(--green-dark);
+  display: grid;
+  gap: 8px;
+  line-height: 1.35;
+  list-style: none;
+  margin: 18px 0 18px;
+  padding: 18px 0 0;
+}
+
+.business-points li {
+  align-items: center;
+  display: flex;
+  font-size: 0.92rem;
+  font-weight: 800;
+  gap: 10px;
+}
+
+.business-points li::before {
+  background: var(--gold-soft);
+  border-radius: 999px;
+  content: "";
+  flex: 0 0 7px;
+  height: 7px;
+  width: 7px;
 }
 
 .business-card a {
@@ -438,14 +520,21 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .business-card,
-  .business-card:nth-child(4),
-  .business-card:nth-child(5) {
+  .business-card {
+    grid-column: auto;
+    min-height: 430px;
+  }
+
+  .business-card:nth-child(n + 4) {
     grid-column: auto;
   }
 
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .capability-band {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -476,8 +565,8 @@ body {
 
 @media (max-width: 620px) {
   .hero {
-    min-height: 760px;
-    padding-bottom: 148px;
+    min-height: 940px;
+    padding-bottom: 214px;
     padding-top: 176px;
   }
 
@@ -503,9 +592,14 @@ body {
   }
 
   .business-grid,
+  .capability-list,
   .service-grid,
   .enhanced-footer {
     grid-template-columns: 1fr;
+  }
+
+  .business-card {
+    min-height: auto;
   }
 
   .footer-brand,
