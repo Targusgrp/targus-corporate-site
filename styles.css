@@ -452,6 +452,81 @@ h3 {
   margin-top: 4px;
 }
 
+.business-directory {
+  background: #f2f6f3;
+  border-top: 1px solid var(--line);
+  padding: 70px clamp(20px, 5vw, 72px);
+}
+
+.business-directory-header {
+  align-items: end;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(260px, 0.55fr);
+  margin-bottom: 28px;
+}
+
+.business-directory-header h2 {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+}
+
+.business-directory-header p:last-child {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.business-directory-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.business-directory-grid a {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  display: grid;
+  gap: 10px;
+  min-height: 156px;
+  padding: 20px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.business-directory-grid a:hover,
+.business-directory-grid a:focus-visible {
+  border-color: rgba(23, 109, 74, 0.35);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.business-directory-grid a[aria-current="page"] {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: var(--white);
+  pointer-events: none;
+}
+
+.business-directory-grid strong,
+.business-directory-grid span {
+  display: block;
+}
+
+.business-directory-grid strong {
+  font-size: 1.02rem;
+}
+
+.business-directory-grid span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.business-directory-grid a[aria-current="page"] span {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .site-footer {
   align-items: center;
   border-top: 1px solid var(--line);
@@ -494,9 +569,14 @@ h3 {
   .metrics,
   .service-grid,
   .business-grid,
+  .business-directory-header,
   .standards,
   .contact {
     grid-template-columns: 1fr;
+  }
+
+  .business-directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .metrics {
@@ -534,6 +614,15 @@ h3 {
 
   .button {
     width: 100%;
+  }
+
+  .business-directory {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .business-directory-grid {
+    grid-template-columns: 1fr;
   }
 
   .standards-list div {
